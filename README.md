@@ -33,7 +33,7 @@ jobs:
     permissions:
       issues: write
     steps:
-      - uses: your-username/hugchat-issue-assistant@v1
+      - uses: lmangani/huggingchat-action@v0.0.2
         with:
           huggingface_email: ${{ secrets.HUGCHAT_EMAIL }}
           huggingface_password: ${{ secrets.HUGCHAT_PASSWORD }}
@@ -76,7 +76,7 @@ jobs:
 ### With Custom Configuration
 
 ```yaml
-- uses: your-username/hugchat-issue-assistant@v1
+- uses: lmangani/huggingchat-action@v0.0.2
   with:
     huggingface_email: ${{ secrets.HUGCHAT_EMAIL }}
     huggingface_password: ${{ secrets.HUGCHAT_PASSWORD }}
