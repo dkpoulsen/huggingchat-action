@@ -56,7 +56,7 @@ jobs:
 |-------|-------------|----------|---------|
 | `huggingface_email` | HuggingFace account email | Yes | - |
 | `huggingface_password` | HuggingFace account password | Yes | - |
-| `assistant_id` | HugChat assistant ID | No | '673e290837ec25016921608f' |
+| `assistant_id` | HuggingFace Assistant ID | No | '673e290837ec25016921608f' |
 | `web_search` | Enable web search for responses | No | 'true' |
 | `response_template` | Custom template for responses | No | (see default template) |
 | `issue_filter` | Labels to filter issues (comma-separated) | No | '' |
