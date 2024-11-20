@@ -1,6 +1,6 @@
 # HugChat Issue Assistant
 
-Automatically respond to GitHub issues using HugChat AI, powered by your HuggingFace Assistant.
+Automatically respond to GitHub issues using your HuggingFace Assistants.
 
 ## Features
 
