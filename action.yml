@@ -63,5 +63,5 @@ runs:
         ADD_LABELS: ${{ inputs.add_labels }}
         GITHUB_TOKEN: ${{ github.token }}
         ISSUE_NUMBER: ${{ github.event.issue.number }}
-        ISSUE_BODY: ${{ github.event.issue.body }}
+        ISSUE_BODY: ${{ github.event.comment.body || github.event.issue.body }}
         ISSUE_LABELS: ${{ toJSON(github.event.issue.labels) }}
