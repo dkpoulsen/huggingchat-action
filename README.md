@@ -24,6 +24,8 @@ name: Respond to Issues
 on:
   issues:
     types: [opened]
+  issue_comment:
+    types: [created]
 
 jobs:
   respond:
