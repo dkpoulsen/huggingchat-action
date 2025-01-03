@@ -1,27 +1,27 @@
-name: 'HugChat Issue Assistant'
-description: 'Automatically respond to GitHub issues using HugChat AI'
-author: 'Your Name'
+name: "HugChat Issue Assistant"
+description: "Automatically respond to GitHub issues using HugChat AI"
+author: "Your Name"
 branding:
-  icon: 'message-square'
-  color: 'blue'
+  icon: "message-square"
+  color: "blue"
 
 inputs:
   huggingface_email:
-    description: 'HuggingFace account email'
+    description: "HuggingFace account email"
     required: true
   huggingface_password:
-    description: 'HuggingFace account password'
+    description: "HuggingFace account password"
     required: true
   assistant_id:
-    description: 'HugChat assistant ID'
+    description: "HugChat assistant ID"
     required: false
-    default: '673e290837ec25016921608f'
+    default: "673e290837ec25016921608f"
   web_search:
-    description: 'Enable web search for responses'
+    description: "Enable web search for responses"
     required: false
-    default: 'true'
+    default: "true"
   response_template:
-    description: 'Custom template for the response. Use {response} as placeholder for the AI response'
+    description: "Custom template for the response. Use {response} as placeholder for the AI response"
     required: false
     default: |
       👋 Hello! Here's a response from HugChat:
@@ -32,21 +32,21 @@ inputs:
 
       *Note: I am a bot powered by HugChat. Please verify any information provided.*
   issue_filter:
-    description: 'Labels to filter issues (comma-separated)'
+    description: "Labels to filter issues (comma-separated)"
     required: false
-    default: ''
+    default: ""
   add_labels:
-    description: 'Labels to add to responded issues (comma-separated)'
+    description: "Labels to add to responded issues (comma-separated)"
     required: false
-    default: 'hugchat-responded'
+    default: "hugchat-responded"
 
 runs:
-  using: 'composite'
+  using: "composite"
   steps:
     - uses: actions/checkout@v4
     - uses: actions/setup-python@v5
       with:
-        python-version: '3.10'
+        python-version: "3.10"
     - run: |
         python -m pip install --upgrade pip
         pip install hugchat
@@ -61,7 +61,7 @@ runs:
         RESPONSE_TEMPLATE: ${{ inputs.response_template }}
         ISSUE_FILTER: ${{ inputs.issue_filter }}
         ADD_LABELS: ${{ inputs.add_labels }}
-        GITHUB_TOKEN: ${{ github.token }}
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         ISSUE_NUMBER: ${{ github.event.issue.number }}
         ISSUE_BODY: ${{ github.event.comment.body || github.event.issue.body }}
         ISSUE_LABELS: ${{ toJSON(github.event.issue.labels) }}
